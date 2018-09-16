@@ -1,0 +1,55 @@
+.navbar, footer{
+  background-color: #003B6F;
+}
+
+#navBarSearchForm {
+  width:430px !important;
+}
+
+#belowNavBar {
+  padding-top: 80px;
+  font-size: 14px;
+}
+
+#sideCategory {
+  font-size: 14px;
+}
+
+.legend {
+  list-style: none
+}
+
+.legend#indexAtas li {
+  display: inline-block;
+  *display: inline;
+  padding: 4px;
+}
+
+#sideCategory .legend {
+  padding: 0;
+  margin: 0;
+}
+
+#sideCategory .legend li{
+  padding-bottom: 10px;
+}
+
+#sideCategory .legend a {
+  color: black;
+}
+
+#sideCategory {
+  padding-left: 45px;
+}
+
+.item {
+  margin-bottom: 30px;
+}
+
+.btn-sm {
+  background-color: #003B6F;
+}
+
+footer p {
+  font-size: 12px;
+}

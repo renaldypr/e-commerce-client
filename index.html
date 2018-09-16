@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <title>Blanjapedia</title>
+</head>
+
+<body>
+  <div id="app">
+    <navbar v-on:generate-search="goSearch" v-on:empty-cart="emptyCart" v-on:delete-item="deleteItem" v-on:filter-category="filterCategory" v-on:all-items="selectAllItems" v-bind:parentcart="parentCart" v-bind:searchitems="itemsForSearching"></navbar>
+
+
+      <div id="belowNavBar">
+        <ul class="legend" id="indexAtas">
+          <li><a href="#" style="color: #003B6F;" v-if="selectedCategory !== ''">All Category</a></li>
+          <li v-if="selectedCategory !== ''"><i class="fas fa-chevron-right"></i></li>
+          <li>{{ selectedCategory.name }}</li>
+        </ul>
+      </div>
+
+      <etalase-item v-bind:searchresults="searchResults" v-on:items-for-search="itemsForSearch" v-on:add-cart="addToCart" v-on:clear-category="clearCategory" v-bind:selectedcategory="selectedCategory" v-bind:allitems="allItems"></etalase-item>
+
+    <footer class="py-3">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Blanjapedia 2018</p>
+      </div>
+    </footer>
+  </div>
+  <script src="./components/etalase.js"></script>
+  <script src="./components/category.js"></script>
+  <script src="./components/login.js"></script>
+  <script src="./components/cart.js"></script>
+  <script src="./components/register.js"></script>
+  <script src="./components/profile.js"></script>
+  <script src="./components/searchbar.js"></script>
+  <script src="./components/navbar.js"></script>
+  <script src="main.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
