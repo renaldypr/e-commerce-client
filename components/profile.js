@@ -46,7 +46,8 @@ const profile = {
       activeUser : function() {
         return localStorage.getItem('user')
       },
-      myTransactions: []
+      myTransactions: [],
+      url: 'http://api.renaldypratama.xyz'
     }
   },
   methods: {
@@ -68,7 +69,7 @@ const profile = {
     let self = this;
     axios({
       method: 'get',
-      url: 'http://localhost:3000/transactions',
+      url: `${this.url}/transactions`,
       headers: {
         token: self.getToken()
       }
@@ -90,7 +91,7 @@ const profile = {
       let self = this;
         axios({
           method: 'get',
-          url: 'http://localhost:3000/transactions',
+          url: `${this.url}/transactions`,
           headers: {
             token: self.getToken()
           }
@@ -114,7 +115,7 @@ const profile = {
       let self = this;
         axios({
           method: 'get',
-          url: 'http://localhost:3000/transactions',
+          url: `${this.url}/transactions`,
           headers: {
             token: self.getToken()
           }
