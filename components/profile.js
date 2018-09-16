@@ -40,7 +40,7 @@ const profile = {
     </div>
   </div>
   `,
-  props: [ 'newtransaction' ],
+  props: [ 'newtransaction', 'islogin' ],
   data() {
     return {
       activeUser : function() {
@@ -66,10 +66,9 @@ const profile = {
   },
   created() {
     let self = this;
-    const url = 'http://api.renaldypratama.xyz'
     axios({
       method: 'get',
-      url: `${url}/transactions`,
+      url: 'http://localhost:3000/transactions',
       headers: {
         token: self.getToken()
       }
@@ -87,12 +86,11 @@ const profile = {
   },
   watch: {
     newtransaction: function() {
-      const url = 'http://api.renaldypratama.xyz'
       this.myTransactions = []
       let self = this;
         axios({
           method: 'get',
-          url: `${url}/transactions`,
+          url: 'http://localhost:3000/transactions',
           headers: {
             token: self.getToken()
           }
@@ -107,6 +105,31 @@ const profile = {
           .catch(err => {
             console.log(err)
           })
+    },
+    islogin: function() {
+      if(this.islogin === false) {
+        this.myTransactions = []
+      } else {
+        this.myTransactions = []
+      let self = this;
+        axios({
+          method: 'get',
+          url: 'http://localhost:3000/transactions',
+          headers: {
+            token: self.getToken()
+          }
+        })
+          .then(transactions => {
+            for (let i = 0; i < transactions.data.data.length; i++) {
+              if (transactions.data.data[i].user.email === localStorage.getItem('email')) {             
+                self.myTransactions.push(transactions.data.data[i])
+              }
+            }
+          })
+          .catch(err => {
+            console.log(err)
+          })
+      }
     }
   }
 }

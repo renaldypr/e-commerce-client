@@ -32,7 +32,7 @@ Vue.component('navbar', {
     <modalLogin v-on:is-login="changeIsLogin"></modalLogin>
     <modalRegister></modalRegister>
     <modalCart v-bind:cart="cart" v-on:delete-item="deleteItem" v-on:clear-cart="clearCart"></modalCart>
-    <modalProfile v-bind:newtransaction="newTransaction"></modalProfile>
+    <modalProfile v-bind:islogin="isLogin" v-bind:newtransaction="newTransaction"></modalProfile>
   </div>
   `,
   props: [ 'parentcart', 'searchitems' ],
@@ -58,6 +58,7 @@ Vue.component('navbar', {
     logout: function() {
       localStorage.removeItem('token')
       localStorage.removeItem('user')
+      localStorage.removeItem('email')
       this.isLogin = false
     },
     filterCategory: function(category) {
