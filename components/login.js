@@ -42,13 +42,14 @@ const login = {
   },
   methods: {
     login: function() {
+      const url = 'http://api.renaldypratama.xyz'
       if(this.emailLogin === '' || this.passwordLogin === '') {
         this.errorMsg = 'please insert your email & password!'
       } else {
         let self = this;
         axios({
           method: 'post',
-          url: 'http://localhost:3000/users/login',
+          url: `${url}/users/login`,
           data: {
             email: this.emailLogin,
             password: this.passwordLogin

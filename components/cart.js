@@ -63,6 +63,7 @@ const cart = {
       this.$emit('delete-item', itemId)
     },
     checkout: function () {
+      const url = 'http://api.renaldypratama.xyz'
       if(this.modalCart.length) {
         if(this.getToken()) {
           let self = this
@@ -75,7 +76,7 @@ const cart = {
 
           axios({
             method: 'post',
-            url: 'http://localhost:3000/transactions',
+            url: `${url}/transactions`,
             data: {
               totalPrice: this.totalPrice,
               items: arrCheckout

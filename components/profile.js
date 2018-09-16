@@ -66,9 +66,10 @@ const profile = {
   },
   created() {
     let self = this;
+    const url = 'http://api.renaldypratama.xyz'
     axios({
       method: 'get',
-      url: 'http://localhost:3000/transactions',
+      url: `${url}/transactions`,
       headers: {
         token: self.getToken()
       }
@@ -86,11 +87,12 @@ const profile = {
   },
   watch: {
     newtransaction: function() {
+      const url = 'http://api.renaldypratama.xyz'
       this.myTransactions = []
       let self = this;
         axios({
           method: 'get',
-          url: 'http://localhost:3000/transactions',
+          url: `${url}/transactions`,
           headers: {
             token: self.getToken()
           }

@@ -49,9 +49,10 @@ const register = {
         this.errorMsg = 'Please fill all the required forms!'
       } else {
         let self = this
+        const url = 'http://api.renaldypratama.xyz'
         axios({
           method: 'post',
-          url: 'http://localhost:3000/users',
+          url: `${url}/users`,
           data: {
             name: this.nameRegister,
             email: this.emailRegister,

@@ -33,10 +33,10 @@ const category = {
   },
   created() {
     let self = this;
-
+    const url = 'http://api.renaldypratama.xyz'
     axios({
       method: 'get',
-      url: 'http://localhost:3000/categories',
+      url: `${url}/categories`,
     })
       .then(categories => {
         for (let i = 0; i < categories.data.data.length; i++) {
